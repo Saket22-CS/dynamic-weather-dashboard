@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Weather Dashboard Design System - Dynamic & Beautiful */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Weather-themed color palette */
+    --sunny-primary: 45 100% 51%;
+    --sunny-secondary: 35 100% 60%;
+    --cloudy-primary: 210 14% 53%;
+    --cloudy-secondary: 210 16% 82%;
+    --rainy-primary: 217 25% 31%;
+    --rainy-secondary: 220 16% 56%;
+    --snowy-primary: 200 18% 46%;
+    --snowy-secondary: 210 20% 98%;
+    --stormy-primary: 223 44% 25%;
+    --stormy-secondary: 217 33% 17%;
+
+    /* Dynamic background gradients */
+    --gradient-sunny: linear-gradient(135deg, hsl(var(--sunny-primary)) 0%, hsl(var(--sunny-secondary)) 100%);
+    --gradient-cloudy: linear-gradient(135deg, hsl(var(--cloudy-primary)) 0%, hsl(var(--cloudy-secondary)) 100%);
+    --gradient-rainy: linear-gradient(135deg, hsl(var(--rainy-primary)) 0%, hsl(var(--rainy-secondary)) 100%);
+    --gradient-snowy: linear-gradient(135deg, hsl(var(--snowy-primary)) 0%, hsl(var(--snowy-secondary)) 100%);
+    --gradient-stormy: linear-gradient(135deg, hsl(var(--stormy-primary)) 0%, hsl(var(--stormy-secondary)) 100%);
+    --gradient-night: linear-gradient(135deg, hsl(231 36% 23%) 0%, hsl(220 26% 14%) 100%);
+
+    /* Glassmorphism effects */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Card and UI elements */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --card-glass: rgba(255, 255, 255, 0.15);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with enhanced contrast */
+    --background: 223 47% 11%;
+    --foreground: 210 40% 98%;
+
+    /* Dark mode glass effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: rgba(255, 255, 255, 0.05);
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Weather background classes */
+  .weather-bg-sunny {
+    background: var(--gradient-sunny);
+  }
+  
+  .weather-bg-cloudy {
+    background: var(--gradient-cloudy);
+  }
+  
+  .weather-bg-rainy {
+    background: var(--gradient-rainy);
+  }
+  
+  .weather-bg-snowy {
+    background: var(--gradient-snowy);
+  }
+  
+  .weather-bg-stormy {
+    background: var(--gradient-stormy);
+  }
+  
+  .weather-bg-night {
+    background: var(--gradient-night);
+  }
+
+  /* Glass morphism effects */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Weather animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+  }
+
+  @keyframes rain-drop {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(180deg); opacity: 0; }
+  }
+
+  @keyframes snowfall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-rain {
+    animation: rain-drop 1s linear infinite;
+  }
+
+  .animate-snow {
+    animation: snowfall 3s linear infinite;
+  }
+}
